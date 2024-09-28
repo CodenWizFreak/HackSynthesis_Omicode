@@ -1,24 +1,22 @@
 import streamlit as st
 
 def show_campaigns():
-    st.subheader("Campaign Management")
-    
-    # You can add various functionalities related to campaigns here
-    # For example, displaying a list of campaigns
-    campaigns = [
-        {"name": "Campaign 1", "status": "Active"},
-        {"name": "Campaign 2", "status": "Completed"},
-        {"name": "Campaign 3", "status": "Pending"}
-    ]
+    # Blockchain-based Campaign Section
+    st.subheader("🌐 Blockchain Campaigns for Disaster Relief")
+    st.markdown("Support blockchain-based campaigns aimed at managing cloudburst and flood relief in India.")
 
-    # Display the campaigns in a table
-    st.table(campaigns)
+    # Example blockchain campaigns
+    campaigns_df = pd.DataFrame({
+        "Campaign": ["Flood Relief Mumbai", "Cloudburst Aid Darjeeling", "Disaster Relief Kolkata"],
+        "Amount Raised": [50000, 30000, 45000],
+        "Goal": [100000, 50000, 80000]
+    })
 
-    # Add functionality to create a new campaign
-    with st.form("new_campaign_form"):
-        name = st.text_input("Campaign Name")
-        status = st.selectbox("Campaign Status", ["Active", "Completed", "Pending"])
-        submit_button = st.form_submit_button("Create Campaign")
+    # Progress bars for campaigns
+    for i, row in campaigns_df.iterrows():
+        st.markdown(f"**{row['Campaign']}**")
+        st.progress(row['Amount Raised'] / row['Goal'])
         
-        if submit_button:
-            st.success(f"New campaign '{name}' created with status '{status}'!")
+    # Fundraising Section
+    st.subheader("💰 Fundraising for Relief Efforts")
+    st.markdown("Help us raise funds to manage the impacts of rainfall and cloudbursts across India.")
