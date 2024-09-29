@@ -38,6 +38,11 @@
 
 ---
 
+## Flowchart
+
+![Screenshot 2024-09-29 115457](https://github.com/user-attachments/assets/79ba4ce1-bc29-4e2e-9892-e32d3b660afd)
+
+
 ## 📸 Snapshots
 
 ![Natural Calamity Predictor Interface](https://github.com/user-attachments/assets/4a776950-5a4f-4f2d-b36c-b286736d619c)
