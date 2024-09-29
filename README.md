@@ -1,7 +1,3 @@
-Here’s a GitHub README for your hackathon project, detailing your Streamlit app and blockchain implementation:
-
----
-
 # HackSynthesis Omicode
 
 Welcome to **HackSynthesis Omicode**! This project aims to enhance disaster preparedness by providing insights into potential natural calamities through machine learning, along with a relief fund collection gateway on the blockchain.
@@ -92,7 +88,3 @@ To set up the project locally, follow these steps:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize any part of this README to better fit your project specifics!
