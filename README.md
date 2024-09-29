@@ -1,6 +1,3 @@
-Here’s a GitHub README for your hackathon project, detailing your Streamlit app and blockchain implementation:
-
----
 
 # HackSynthesis Omicode
 
