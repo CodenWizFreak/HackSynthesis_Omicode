@@ -1,6 +1,6 @@
 # 🚀 HackSynthesis 🌍
 
-# Welcome to Pragati by Team Omicode
+# Welcome to Pragati Aid by Team Omicode
 
 ### **"Empowering Communities through Intelligent Rainfall Forecasting for Natural Disaster Resilience."**
 
