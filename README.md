@@ -25,8 +25,16 @@ Welcome to **HackSynthesis Omicode**! This project aims to enhance disaster prep
    - A Solidity smart contract that allows users to contribute to a relief fund using Web3 tokens, ensuring transparent and secure transactions.
   
 ## Snapshots
+![f65251eae4f4bbe974811ac962cc0ec158dbd92fc40dd3c8cf24e769](https://github.com/user-attachments/assets/4a776950-5a4f-4f2d-b36c-b286736d619c)
 
 
+https://github.com/user-attachments/assets/6a03594f-8c07-4d2d-8a0a-fb1ad6472927
+
+
+![a377e179219cfa05f72980d237d91bdef822abfc2dcacff318ea9d35](https://github.com/user-attachments/assets/0a66c26d-6060-4be5-a97b-65cd3ac2464e)
+
+
+![3de08fc47caea6d37205b7f171222d6447b965f74e3e8b091dae6eca](https://github.com/user-attachments/assets/822c525a-a86c-44a4-866a-201019000d53)
 
 ## Installation
 
