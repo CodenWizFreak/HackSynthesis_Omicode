@@ -159,7 +159,7 @@ To set up **HackSynthesis Omicode** on your local machine, follow these steps:
 - **Backend**: Python (Flask), Streamlit 🚀
 - **Machine Learning**: TensorFlow, Keras 🧠, Scikit-learn, XGBoost, Haversine Formula 📐, ARIMA (AutoRegressive Integrated Moving Average) 📉
 - **Data Processing**: Pandas, NumPy 🧮, GeoTIFF, Rasterio 🌍
-- **Blockchain**: Truffle, Ganache, Ethereum 🔗, MetaMask 🦊, Web3.py 🌐
+- **Blockchain**: Truffle, Infura, Ganache, Ethereum 🔗, MetaMask 🦊, Web3.py 🌐
 - **Smart Contracts**: ERC-20 Token Standard 💎
 - **Data Visualization**: Matplotlib, Seaborn, Plotly 📊
 - **Geospatial Data**: GeoPandas, Folium 🗺️
