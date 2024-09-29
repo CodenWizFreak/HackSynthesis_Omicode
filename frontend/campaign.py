@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import streamlit as st
+import smtplib
+from email.mime.text import MIMEText
 def show_campaigns():
     # Blockchain-based Campaign Section
     st.subheader("🌐 Blockchain Campaigns for Disaster Relief")
@@ -54,3 +56,4 @@ def show_campaigns():
     # Fundraising Call to Action
     st.subheader("📢 How You Can Help")
     st.markdown("Your contribution, no matter how small, can make a big difference. Click [here](https://www.donate.com) to donate.")
+

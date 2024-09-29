@@ -22,7 +22,6 @@ st.markdown("An interactive platform for rainfall monitoring, forecasting, and b
 st.sidebar.title("Filter Options")
 view_mode = st.sidebar.selectbox("Select View Mode", 
                                  ["India Overview", "State-wise Rainfall", "Major Cities", "West Bengal Districts","Campaign"])
-date_range = st.sidebar.date_input("Select Date Range", [])
 
 # Whole India Rainfall Visualization - India Map with rainfall data
 if view_mode == "India Overview":
