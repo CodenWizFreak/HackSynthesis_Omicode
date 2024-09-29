@@ -1,6 +1,6 @@
 # 🚀 HackSynthesis 🌍
 
-# Welcome to Pragati by Team Omicode
+# Welcome to Pragati Aid by Team Omicode
 
 ### **"Empowering Communities through Intelligent Rainfall Forecasting for Natural Disaster Resilience."**
 
@@ -114,6 +114,39 @@ To set up **HackSynthesis Omicode** on your local machine, follow these steps:
    - Watch **live gas fees** ⛽ and **blockchain confirmations** in real-time.
 
 ---
+
+### Unique Selling Propositions (USPs)
+1. **Comprehensive Disaster Preparedness**: Integrates advanced machine learning and time-series models for accurate natural calamity predictions.
+2. **Localized Forecasting**: Provides detailed district-level predictions for natural disasters in West Bengal, ensuring targeted insights.
+3. **Blockchain-Based Relief Fund**: Utilizes smart contracts on Ethereum for secure, transparent, and traceable donation processes.
+4. **GeoTIFF Visualization**: Generates dynamic precipitation timeline videos using GeoTIFF data, enhancing user understanding of weather trends.
+
+
+---
+
+
+### Feasibility
+1. **Data-Driven Decision Making**: Leverages extensive historical weather data to enhance prediction accuracy and reliability.
+2. **Scalable Framework**: The system can be adapted to different regions beyond India, allowing for wider application in disaster management.
+3. **Technological Reliability**: Built using proven technologies such as Python, Ethereum, and TensorFlow, ensuring a solid foundation for the project.
+4. **Community Engagement**: Encourages active participation through a blockchain-based donation system, fostering trust and local involvement.
+
+---
+
+### Novelty
+1. **Interdisciplinary Integration**: Combines machine learning, geospatial analysis, and blockchain technology for a comprehensive disaster management solution.
+2. **Real-Time Disaster Insights**: Offers real-time analytics on disaster probabilities and blockchain transactions, enhancing situational awareness.
+3. **GeoTIFF Data Utilization**: Innovatively employs GeoTIFF data to create detailed precipitation timeline visualizations for informed decision-making.
+4. **Localized Impact Focus**: Prioritizes district-specific data, highlighting the importance of localized forecasting in effective disaster preparedness.
+
+### Other Aspects
+1. **Community Empowerment**: Equips communities with tools and information necessary for proactive disaster preparedness and response.
+2. **Holistic Disaster Ecosystem**: Encompasses the entire disaster management process, from prediction to relief fund allocation, fostering resilience.
+3. **Open-Source Development**: Promotes collaborative contributions from developers and researchers to innovate and improve disaster management solutions.
+4. **Awareness and Education**: Aims to raise public awareness about disaster preparedness and community involvement through a user-friendly platform.
+
+---
+
 
 ## ⚙️ Technologies Used
 
