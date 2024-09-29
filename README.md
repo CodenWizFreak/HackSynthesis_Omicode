@@ -38,7 +38,7 @@ Welcome to **HackSynthesis Omicode**! 🌟 This project aims to boost **disaster
 
 👆 A glimpse of the app interface for predicting the probability of natural disasters using ML and ARIMA-based models.
 
-![Precipitation Timeline Across States](https://github.com/user-attachments/assets/6a03594f-8c07-4d2d-8a0a-fb1ad6472927)
+![Precipitation Timeline Across States](images/rainfall_video.mp4)
 
 🎥 Visualize precipitation timelines across **India** and its **states** with **GeoTIFF** data.
 
