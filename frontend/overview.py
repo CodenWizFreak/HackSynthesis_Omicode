@@ -150,10 +150,4 @@ def show_overview():
     - **Climate Change**
     """)
 
-    st.markdown("""
-    ### Data Sources
-    - India Meteorological Department (IMD)
-    - National Remote Sensing Centre (NRSC)
-    - World Meteorological Organization (WMO)
-    """)
 

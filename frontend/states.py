@@ -15,8 +15,42 @@ india_map = gpd.read_file('frontend/dataset/India new political map/Political_ma
 # Directory to save video frames
 frame_dir = "frames"
 
-# Function to create a video from frames
-def create_video_from_frames(start_date, end_date):
+# Function to plot precipitation for a specific state
+def plot_precipitation_map_for_state(state_map, filtered_df, date_str, save_frame=False, frame_idx=None):
+    fig, ax = plt.subplots(figsize=(10, 10))
+
+    # Plot only the selected state's boundary
+    if state_map is not None:
+        state_map.plot(ax=ax, color='white', edgecolor='black')
+
+    if filtered_df is not None:
+        # Get latitude and longitude for the current state and date
+        lat_lon_precip = filtered_df[['Latitude', 'Longitude', date_str]].dropna()
+
+        if not lat_lon_precip.empty:
+            # Scatter plot of rainfall data over the state's map
+            sc = ax.scatter(lat_lon_precip['Longitude'], lat_lon_precip['Latitude'], 
+                            c=lat_lon_precip[date_str], cmap='coolwarm', 
+                            s=50, edgecolor='k', alpha=0.7)
+
+            # Add color bar
+            cbar = plt.colorbar(sc, ax=ax)
+            cbar.set_label('Precipitation (mm)', rotation=270, labelpad=20)
+
+    ax.set_title(f'Rainfall Data for {state_map.iloc[0]["ST_NAME"]} on {date_str}' if state_map is not None else f'Rainfall Data on {date_str}')
+    ax.set_xlabel('Longitude')
+    ax.set_ylabel('Latitude')
+
+    if save_frame and frame_idx is not None:
+        frame_path = os.path.join(frame_dir, f"frame_{frame_idx:03d}.png")
+        fig.savefig(frame_path)
+        plt.close(fig)
+        return frame_path
+
+    st.pyplot(fig)
+    return None
+
+def create_video_from_frames(start_date, end_date, state_map, filtered_df):
     # Ensure the frame directory exists
     os.makedirs(frame_dir, exist_ok=True)
 
@@ -29,9 +63,14 @@ def create_video_from_frames(start_date, end_date):
     # Loop through dates and generate frames
     for idx, date in enumerate(date_range):
         formatted_date = f"{date.year}_{str(date.month).zfill(2)}_{str(date.day).zfill(2)}"
-        frame_path = plot_precipitation_map_for_state(None, None, formatted_date, save_frame=True, frame_idx=idx)
-        if frame_path:
-            frame_paths.append(frame_path)
+        
+        # Check if the formatted date is in the columns of the filtered DataFrame
+        if formatted_date in filtered_df.columns:
+            frame_path = plot_precipitation_map_for_state(state_map, filtered_df, formatted_date, save_frame=True, frame_idx=idx)
+            if frame_path:
+                frame_paths.append(frame_path)
+    else:
+        st.warning(f"No data available for {state_map} on {formatted_date}.")
 
     # Generate video from the frames
     if frame_paths:
@@ -50,6 +89,7 @@ def create_video_from_frames(start_date, end_date):
     else:
         st.error("No frames generated for the selected date range.")
 
+# Update the show_states function to restrict years and months
 def show_states():
     st.subheader("State-wise Rainfall")
 
@@ -77,7 +117,7 @@ def show_states():
         st.error(f"No rainfall or map data available for {state}.")
         return
 
-    # Dropdown for year selection
+    # Dropdown for year selection (restrict to 2022, 2023, 2024)
     year = st.sidebar.selectbox("Select Year", [2022, 2023, 2024])
     
     # Dropdown for month selection based on selected year
@@ -119,14 +159,8 @@ def show_states():
 
     # Check if the selected date exists in the DataFrame
     if date_str in filtered_df.columns:
-        # Get latitude and longitude for the current state and date
-        lat_lon_precip = filtered_df[['Latitude', 'Longitude', date_str]].dropna()
-
-        if lat_lon_precip.empty:
-            st.warning(f"No precipitation data available for {state} on {date_str}.")
-        else:
-            # Plot the precipitation map for the specific date with the state's boundary
-            plot_precipitation_map_for_state(state_map, lat_lon_precip, date_str)
+        # Plot the precipitation map for the specific date with the state's boundary
+        plot_precipitation_map_for_state(state_map, filtered_df, date_str)
     else:
         st.warning(f"No data available for {state} on {date_str}.")
 
@@ -141,36 +175,4 @@ def show_states():
         end_date = st.date_input("End Date", value=pd.to_datetime("2024-12-31"))
 
     if st.button("Create Video"):
-        create_video_from_frames(start_date, end_date)
-
-# Function to plot precipitation for a specific state
-def plot_precipitation_map_for_state(state_map, lat_lon_precip, date_str, save_frame=False, frame_idx=None):
-    fig, ax = plt.subplots(figsize=(10, 10))
-
-    # Plot only the selected state's boundary
-    if state_map is not None:
-        state_map.plot(ax=ax, color='white', edgecolor='black')
-
-    if lat_lon_precip is not None:
-        # Scatter plot of rainfall data over the state's map
-        sc = ax.scatter(lat_lon_precip['Longitude'], lat_lon_precip['Latitude'], 
-                        c=lat_lon_precip[date_str], cmap='coolwarm', 
-                        s=50, edgecolor='k', alpha=0.7)
-
-        # Add color bar
-        cbar = plt.colorbar(sc, ax=ax)
-        cbar.set_label('Precipitation (mm)', rotation=270, labelpad=20)
-
-    ax.set_title(f'Rainfall Data for {state_map.iloc[0]["ST_NAME"]} on {date_str}' if state_map is not None else f'Rainfall Data on {date_str}')
-    ax.set_xlabel('Longitude')
-    ax.set_ylabel('Latitude')
-
-    if save_frame and frame_idx is not None:
-        frame_path = os.path.join(frame_dir, f"frame_{frame_idx:03d}.png")
-        fig.savefig(frame_path)
-        plt.close(fig)
-        return frame_path
-
-    st.pyplot(fig)
-    return None
-
+        create_video_from_frames(start_date, end_date, state_map, filtered_df)        

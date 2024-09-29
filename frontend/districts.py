@@ -12,15 +12,16 @@ import numpy as np
 import imageio
 import os
 from datetime import datetime, timedelta
+from model_dl import predict ,  predict_rain
 
 frame_dir="frames"
 # Function to plot precipitation map for a specific date
 def plot_precipitation_map_for_date(date_input="2024_08_31", save_frame=False, frame_idx=None):
-    shapefile_path = 'District_shape_West_Bengal.shp'  # Update this to the path of your uploaded .shp file
+    shapefile_path = 'frontend\dataset\West Bengal\District_shape_West_Bengal.shp'  # Update this to the path of your uploaded .shp file
     india_map = gpd.read_file(shapefile_path)
 
     # Load the Excel dataset containing precipitation data
-    data_path = 'df_wb.xlsx'  # Path to your Excel file
+    data_path = 'frontend\dataset\df_wb.xlsx'  # Path to your Excel file
     df = pd.read_excel(data_path)
 
     # Check if the date column exists in the DataFrame
@@ -101,63 +102,6 @@ def create_video_from_frames(start_date, end_date):
         st.error("No frames generated for the selected date range.")
 
 # Function to display rainfall data by district
-
-    st.subheader(f"Rainfall Data for {selected_district} in West Bengal")
-
-    # Load the dataset
-    df = pd.read_csv('frontend\dataset\wb_rainfall_1.csv')  # Update the path if needed
-
-    # Filter the dataframe for the selected district
-    filtered_df = df[df['District'].str.lower() == selected_district.lower()]
-
-    if filtered_df.empty:
-        st.error("No data found for the selected district.")
-        return
-
-    # Convert 'Date' column to datetime if it's not already
-    filtered_df['Date'] = pd.to_datetime(filtered_df['Date'], format='%Y_%m_%d')
-
-    # Create a time filter for the user
-    start_date = st.date_input("Start Date", min_value=filtered_df['Date'].min(), value=filtered_df['Date'].min())
-    end_date = st.date_input("End Date", max_value=filtered_df['Date'].max(), value=filtered_df['Date'].max())
-
-    # Filter the data based on date selection
-    filtered_rainfall = filtered_df[(filtered_df['Date'] >= pd.to_datetime(start_date)) & 
-                                     (filtered_df['Date'] <= pd.to_datetime(end_date))]
-
-    # Plot the rainfall data
-    if not filtered_rainfall.empty:
-        fig = px.line(filtered_rainfall, 
-                      x="Date", 
-                      y="Rainfall (mm)",  # Adjust column name as necessary
-                      title=f"Average Daily Rainfall in {selected_district} from {start_date} to {end_date}",
-                      labels={"Rainfall (mm)": "Rainfall (mm)"})
-        st.plotly_chart(fig)
-    else:
-        st.warning("No rainfall data available for the selected date range.")
-
-    # Calculate summary statistics for the last 14 days
-    last_14_days = datetime.now() - timedelta(days=14)
-    recent_rainfall = filtered_df[filtered_df['Date'] >= last_14_days]
-
-    if not recent_rainfall.empty:
-        total_rainfall = recent_rainfall["Rainfall (mm)"].sum()
-        avg_rainfall = recent_rainfall["Rainfall (mm)"].mean()
-        max_rainfall = recent_rainfall["Rainfall (mm)"].max()
-        max_date = recent_rainfall.loc[recent_rainfall["Rainfall (mm)"].idxmax(), "Date"]
-        min_rainfall = recent_rainfall["Rainfall (mm)"].min()
-        min_date = recent_rainfall.loc[recent_rainfall["Rainfall (mm)"].idxmin(), "Date"]
-
-        st.subheader("Rainfall Data Summary for the Last 14 Days")
-        st.markdown(f"**Total Rainfall (last 14 days):** {total_rainfall} mm")
-        st.markdown(f"**Average Rainfall (last 14 days):** {avg_rainfall:.2f} mm")
-        st.markdown(f"**Maximum Rainfall (last 14 days):** {max_rainfall} mm on {max_date.strftime('%Y-%m-%d')}")
-        st.markdown(f"**Minimum Rainfall (last 14 days):** {min_rainfall} mm on {min_date.strftime('%Y-%m-%d')}")
-    else:
-        st.warning("No rainfall data available for the last 14 days.")
-
-
-
 def show_rainfall_by_district(selected_district):
     st.subheader(f"Rainfall Data for {selected_district} in West Bengal")
 
@@ -204,39 +148,27 @@ def show_rainfall_by_district(selected_district):
 
     # Calculate the time delta based on the selected option
     if time_range == "Upcoming 1 Day":
-        delta_days = 1
+        predict_rain(selected_district, 1)
     elif time_range == "Upcoming 1 Week":
-        delta_days = 7
+        predict_rain(selected_district, 7)
     elif time_range == "Upcoming 2 Weeks":
-        delta_days = 14
+        predict_rain(selected_district, 14)
     elif time_range == "Upcoming 3 Weeks":
-        delta_days = 21
+        predict_rain(selected_district, 21)
     elif time_range == "Upcoming 1 Month":
-        delta_days = 30
+        predict_rain(selected_district,30)
 
-    # Get today's date and calculate the future date
-    today = pd.Timestamp.now()
-    future_date = today + pd.Timedelta(days=delta_days)
-
-    # Filter for the upcoming time range
-    upcoming_rainfall = filtered_df[(filtered_df['Date'] >= today) & (filtered_df['Date'] <= future_date)]
-
-    if not upcoming_rainfall.empty:
-        total_rainfall = upcoming_rainfall["Rainfall (mm)"].sum()
-        avg_rainfall = upcoming_rainfall["Rainfall (mm)"].mean()
-        max_rainfall = upcoming_rainfall["Rainfall (mm)"].max()
-        max_date = upcoming_rainfall.loc[upcoming_rainfall["Rainfall (mm)"].idxmax(), "Date"]
-        min_rainfall = upcoming_rainfall["Rainfall (mm)"].min()
-        min_date = upcoming_rainfall.loc[upcoming_rainfall["Rainfall (mm)"].idxmin(), "Date"]
-
-        st.subheader(f"Rainfall Data Summary for the {time_range}")
-        st.markdown(f"**Total Rainfall ({time_range}):** {total_rainfall} mm")
-        st.markdown(f"**Average Rainfall ({time_range}):** {avg_rainfall:.2f} mm")
-        st.markdown(f"**Maximum Rainfall ({time_range}):** {max_rainfall} mm on {max_date.strftime('%Y-%m-%d')}")
-        st.markdown(f"**Minimum Rainfall ({time_range}):** {min_rainfall} mm on {min_date.strftime('%Y-%m-%d')}")
-    else:
-        st.warning(f"No rainfall data available for the {time_range}.")
-
+    # Button to ask for weather prediction
+    if st.button(f"Predict Future Weather Conditions in {selected_district}"):
+        # Collect last 14 days of rainfall data
+        recent_rainfall = filtered_rainfall.tail(14)['Rainfall (mm)'].tolist()
+        
+        # Check if we have exactly 14 days of data
+        if len(recent_rainfall) == 14:
+            st.subheader(f"Predicted Weather Condition for {selected_district}:")
+            prediction = predict(recent_rainfall)
+        else:
+            st.error("Not enough data available for the last 14 days to make a prediction.")
 
 
 # Function to show districts
@@ -253,34 +185,6 @@ def show_district():
     if selected_district:
         show_rainfall_by_district(selected_district)
 
-    # Initial West Bengal district data
-    wb_districts_df = pd.DataFrame({
-        "District": ["Kolkata", "Howrah", "Darjeeling", "Siliguri", "Durgapur"],
-        "Rainfall (mm)": [140, 115, 100, 85, 70]
-    })
-
-    # Plot initial rainfall data
-    fig = px.bar(wb_districts_df, x="District", y="Rainfall (mm)", title="West Bengal District Rainfall")
-    st.plotly_chart(fig)
-
-    # Show details for the selected district
-    district_data = wb_districts_df[wb_districts_df["District"] == selected_district]
-    st.subheader(f"Details for {selected_district}")
-    st.markdown(f"**Rainfall (mm):** {district_data['Rainfall (mm)'].values[0]} mm")
-
-    # Display summary statistics for the selected district
-    total_rainfall = wb_districts_df["Rainfall (mm)"].sum()
-    avg_rainfall = wb_districts_df["Rainfall (mm)"].mean()
-    max_rainfall = wb_districts_df["Rainfall (mm)"].max()
-    max_district = wb_districts_df.loc[wb_districts_df["Rainfall (mm)"].idxmax(), "District"]
-    min_rainfall = wb_districts_df["Rainfall (mm)"].min()
-    min_district = wb_districts_df.loc[wb_districts_df["Rainfall (mm)"].idxmin(), "District"]
-
-    st.subheader("Rainfall Data Summary for All Districts")
-    st.markdown(f"**Total Rainfall across Districts:** {total_rainfall} mm")
-    st.markdown(f"**Average Rainfall:** {avg_rainfall:.2f} mm")
-    st.markdown(f"**District with Maximum Rainfall:** {max_district} ({max_rainfall} mm)")
-    st.markdown(f"**District with Minimum Rainfall:** {min_district} ({min_rainfall} mm)")
 
 # Streamlit Application Main Logic
 def show_districts():
