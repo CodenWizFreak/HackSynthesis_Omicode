@@ -1,0 +1,9 @@
+streamlit==1.20.0
+pandas==1.5.3
+plotly==5.9.0
+matplotlib==3.6.2
+geopandas==0.10.2
+numpy==1.23.5
+imageio==2.25.0
+web3==5.30.0
+streamlit-folium==0.0.7
