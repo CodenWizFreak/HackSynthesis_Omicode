@@ -6,6 +6,7 @@ Welcome to **HackSynthesis Omicode**! This project aims to enhance disaster prep
 ## Table of Contents
 
 - [Features](#features)
+- [Snapshots](#snapshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
@@ -22,6 +23,10 @@ Welcome to **HackSynthesis Omicode**! This project aims to enhance disaster prep
   
 3. **Blockchain-Based Relief Fund**:
    - A Solidity smart contract that allows users to contribute to a relief fund using Web3 tokens, ensuring transparent and secure transactions.
+  
+## Snapshots
+
+
 
 ## Installation
 
