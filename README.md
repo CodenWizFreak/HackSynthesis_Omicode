@@ -89,7 +89,3 @@ To set up the project locally, follow these steps:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize any part of this README to better fit your project specifics!
