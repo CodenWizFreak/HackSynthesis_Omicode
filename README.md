@@ -24,6 +24,9 @@ Welcome to **HackSynthesis Omicode**! This project aims to enhance disaster prep
 3. **Blockchain-Based Relief Fund**:
    - A Solidity smart contract that allows users to contribute to a relief fund using Web3 tokens, ensuring transparent and secure transactions.
   
+## Flow of control:
+  ![Flowcharts (1)](https://github.com/user-attachments/assets/f6ea5d7f-c178-4088-97dd-1efa9435af13)
+
 ## Snapshots
 ![f65251eae4f4bbe974811ac962cc0ec158dbd92fc40dd3c8cf24e769](https://github.com/user-attachments/assets/4a776950-5a4f-4f2d-b36c-b286736d619c)
 
@@ -90,7 +93,7 @@ To set up the project locally, follow these steps:
 - **Frontend**: Streamlit
 - **Backend**: Streamlit
 - **Machine Learning**: Tensorflow, Keras
-- **Blockchain**: Solidity, Truffle, Ganache, Ethereum
+- **Blockchain**: Truffle, Ganache, Ethereum
 
 ## Contributors
 
