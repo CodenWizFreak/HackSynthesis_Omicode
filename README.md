@@ -1,108 +1,146 @@
+# 🚀 HackSynthesis 🌍
 
-# HackSynthesis- Team Omicode
+# Welcome to Pragati by Team Omicode
 
-Welcome to **HackSynthesis Omicode**! This project aims to enhance disaster preparedness by providing insights into potential natural calamities through machine learning, along with a relief fund collection gateway on the blockchain.
+### **"Empowering Communities through Intelligent Rainfall Forecasting for Natural Disaster Resilience."**
 
-## Table of Contents
+---
 
-- [Features](#features)
-- [Snapshots](#snapshots)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technologies Used](#technologies-used)
-- [Contributors](#contributors)
-- [License](#license)
+🌟 This project aims to boost **disaster preparedness** by predicting natural calamities using **Machine Learning** 🧠, time-series models like **ARIMA** 📈, and a **blockchain-based relief fund collection gateway** 💸 powered by **smart contracts** on Ethereum 🔗.
 
-## Features
+---
 
-1. **Natural Calamity Probability Predictor**:
-   - A Streamlit app where users can enter a date to receive the probability of natural calamities such as cloudbursts, floods, or rainfall.
-  
-2. **Precipitation Timeline Video**:
-   - The app creates a timeline video of the precipitation gradient across India or West Bengal based on user-defined start and end dates.
-  
-3. **Blockchain-Based Relief Fund**:
-   - A Solidity smart contract that allows users to contribute to a relief fund using Web3 tokens, ensuring transparent and secure transactions.
-  
-## Flow of control:
-  ![Screenshot 2024-09-29 115457](https://github.com/user-attachments/assets/e502715c-2cb1-471b-ba73-9bbb384bca52)
+## 🎯 Table of Contents
 
-## Snapshots
-![f65251eae4f4bbe974811ac962cc0ec158dbd92fc40dd3c8cf24e769](https://github.com/user-attachments/assets/4a776950-5a4f-4f2d-b36c-b286736d619c)
+- [✨ Features](#features)
+- [📸 Snapshots](#snapshots)
+- [🔧 Installation](#installation)
+- [📖 Usage](#usage)
+- [⚙️ Technologies Used](#technologies-used)
+- [👥 Contributors](#contributors)
+- [📜 License](#license)
 
+---
+
+## ✨ Features
+
+1. **Natural Calamity Probability Predictor 🌩️**:
+   - Predicts the likelihood of natural disasters, such as **cloudbursts**, **floods**, and **rainfall** 🌧️ for specific dates using advanced **ML algorithms** like **Gradient Boosting** 🌲, **ARIMA time series analysis** 📉, and **Haversine Formula** 📐.
+
+2. **State-Level Precipitation Timeline Videos 🎥**:
+   - Generates **GeoTIFF**-based precipitation timeline videos across **India** 🇮🇳, its individual states 🗺️, and even **districts in West Bengal** 📍. The analysis can provide users with district-wise precipitation patterns, offering granular disaster insights.
+
+3. **Blockchain-Based Relief Fund 💵**:
+   - Utilizes **Solidity smart contracts** to enable secure and transparent **Web3 token-based donations**. Each transaction is stored on the **Ethereum blockchain** ensuring complete **trust** and **transparency**.
+
+4. **District-Wise Disaster Forecasting for West Bengal 📊**:
+   - Users can view **district-level** forecasting for **West Bengal** based on historical weather data 🌦️. This fine-grained prediction system analyzes past trends using **ARIMA** and **ML** models for highly localized disaster preparedness.
+
+---
+
+## 📸 Snapshots
+
+![Natural Calamity Predictor Interface](https://github.com/user-attachments/assets/4a776950-5a4f-4f2d-b36c-b286736d619c)
+
+👆 A glimpse of the app interface for predicting the probability of natural disasters using ML and ARIMA-based models.
 
 https://github.com/user-attachments/assets/6a03594f-8c07-4d2d-8a0a-fb1ad6472927
 
 
-![a377e179219cfa05f72980d237d91bdef822abfc2dcacff318ea9d35](https://github.com/user-attachments/assets/0a66c26d-6060-4be5-a97b-65cd3ac2464e)
+🎥 Visualize precipitation timelines across **India** and its **states** with **GeoTIFF** data.
 
+![Blockchain Relief Fund](https://github.com/user-attachments/assets/0a66c26d-6060-4be5-a97b-65cd3ac2464e)
 
-![3de08fc47caea6d37205b7f171222d6447b965f74e3e8b091dae6eca](https://github.com/user-attachments/assets/822c525a-a86c-44a4-866a-201019000d53)
+💸 Leverage **blockchain-based relief fund** collection, ensuring transparent, immutable donations.
 
-## Installation
+![District Analysis in West Bengal](https://github.com/user-attachments/assets/822c525a-a86c-44a4-866a-201019000d53)
 
-To set up the project locally, follow these steps:
+📊 Analyze **district-level precipitation** in **West Bengal** for a more detailed understanding of weather trends.
 
-1. Clone the repository:
+---
+
+## 🔧 Installation
+
+To set up **HackSynthesis Omicode** on your local machine, follow these steps:
+
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/CodenWizFreak/HackSynthesis_Omicode.git
    cd HackSynthesis_Omicode
    ```
 
-2. Create a virtual environment (optional but recommended):
+2. **Create a virtual environment** (recommended):
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   source venv/bin/activate  # Windows: `venv\Scripts\activate`
    ```
 
-3. Install the required packages:
+3. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Set up the blockchain environment:
-   - Ensure you have [Node.js](https://nodejs.org/) installed.
-   - Install Truffle and Ganache:
+4. **Set up the blockchain environment** 🏗️:
+   - Ensure [Node.js](https://nodejs.org/) is installed.
+   - Install **Truffle** and **Ganache**:
      ```bash
      npm install -g truffle
      npm install -g ganache-cli
      ```
 
-5. Compile and migrate the smart contracts:
+5. **Compile and deploy smart contracts** 📝:
    ```bash
    truffle compile
    truffle migrate --network development
    ```
 
-## Usage
+---
+
+## 📖 Usage
 
 1. **Run the Streamlit app**:
    ```bash
    streamlit run app.py
    ```
 
-2. **Interact with the App**:
-   - Open your web browser and go to `http://localhost:8501` to access the app.
-   - Enter the required dates and explore the features.
+2. **Explore the Features**:
+   - **Predict natural disasters**: Enter a specific date to receive predictions for cloudbursts, floods, etc.
+   - **Generate Precipitation Videos**: Select a region (India, state, or district) and generate a precipitation video based on historical **GeoTIFF** data.
+   - **District-Level Analysis**: Receive a detailed **district-wise** prediction for **West Bengal** based on **ARIMA** and **ML** models.
+   - **Blockchain Donations**: Use the app to make Web3 token transactions toward the relief fund.
 
-3. **Blockchain Transactions**:
-   - Use the provided functionality in the app to make Bitcoin token transactions for the relief fund.
+3. **Blockchain Transactions** 💰:
+   - Make secure **Web3 token-based donations** for disaster relief using **Solidity-based smart contracts**.
+   - Watch **live gas fees** ⛽ and **blockchain confirmations** in real-time.
 
-## Technologies Used
+---
 
-- **Frontend**: Streamlit
-- **Backend**: Streamlit
-- **Machine Learning**: Tensorflow, Keras
-- **Blockchain**: Truffle, Ganache, Ethereum
+## ⚙️ Technologies Used
 
-## Contributors
+- **Frontend**: Streamlit 💻
+- **Backend**: Python (Flask), Streamlit 🚀
+- **Machine Learning**: TensorFlow, Keras 🧠, Scikit-learn, XGBoost, Haversine Formula 📐, ARIMA (AutoRegressive Integrated Moving Average) 📉
+- **Data Processing**: Pandas, NumPy 🧮, GeoTIFF, Rasterio 🌍
+- **Blockchain**: Truffle, Ganache, Ethereum 🔗, MetaMask 🦊, Web3.py 🌐
+- **Smart Contracts**: ERC-20 Token Standard 💎
+- **Data Visualization**: Matplotlib, Seaborn, Plotly 📊
+- **Geospatial Data**: GeoPandas, Folium 🗺️
+- **Video Processing**: OpenCV 🎥, ImageIO 📅
 
-- [Ananyo Dasgupta](https://github.com/CodenWizFreak)
-- [Soumyadip Roy](https://github.com/SoumyadipRoy16)
-- [Anidipta Pal](https://github.com/Anidipta)
+---
 
-## License
+## 👥 Contributors
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+- [Ananyo Dasgupta](https://github.com/CodenWizFreak) 🎓
+- [Soumyadip Roy](https://github.com/SoumyadipRoy16) 🚀
+- [Anidipta Pal](https://github.com/Anidipta) 🌟
 
+---
 
+## 📜 License
+
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details. 📄
+
+---
+
+Let’s reshape the future of disaster management with advanced **machine learning**, **ARIMA models**, **geospatial analysis**, and **blockchain** technologies! 🚀
