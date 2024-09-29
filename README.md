@@ -1,5 +1,5 @@
 
-# HackSynthesis Omicode
+# HackSynthesis- Team Omicode
 
 Welcome to **HackSynthesis Omicode**! This project aims to enhance disaster preparedness by providing insights into potential natural calamities through machine learning, along with a relief fund collection gateway on the blockchain.
 
@@ -75,10 +75,9 @@ To set up the project locally, follow these steps:
 ## Technologies Used
 
 - **Frontend**: Streamlit
-- **Backend**: Python, Flask
-- **Machine Learning**: [Insert any ML libraries you used]
-- **Blockchain**: Solidity, Truffle, Ganache
-- **Database**: [Insert if any database is used]
+- **Backend**: Streamlit
+- **Machine Learning**: Tensorflow, Keras
+- **Blockchain**: Solidity, Truffle, Ganache, Ethereum
 
 ## Contributors
 
@@ -89,3 +88,7 @@ To set up the project locally, follow these steps:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Feel free to customize any part of this README to better fit your project specifics!
