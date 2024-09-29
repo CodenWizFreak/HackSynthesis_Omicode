@@ -1,6 +1,12 @@
-# 🚀 HackSynthesis - Team Omicode 🌍
+# 🚀 HackSynthesis 🌍
 
-Welcome to **HackSynthesis Omicode**! 🌟 This project aims to boost **disaster preparedness** by predicting natural calamities using **Machine Learning** 🧠, time-series models like **ARIMA** 📈, and a **blockchain-based relief fund collection gateway** 💸 powered by **smart contracts** on Ethereum 🔗.
+# Welcome to Pragati by Team Omicode
+
+### **"Empowering Communities through Intelligent Rainfall Forecasting for Natural Disaster Resilience."**
+
+---
+
+🌟 This project aims to boost **disaster preparedness** by predicting natural calamities using **Machine Learning** 🧠, time-series models like **ARIMA** 📈, and a **blockchain-based relief fund collection gateway** 💸 powered by **smart contracts** on Ethereum 🔗.
 
 ---
 
