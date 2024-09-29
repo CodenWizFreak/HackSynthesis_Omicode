@@ -1,3 +1,4 @@
+
 # HackSynthesis Omicode
 
 Welcome to **HackSynthesis Omicode**! This project aims to enhance disaster preparedness by providing insights into potential natural calamities through machine learning, along with a relief fund collection gateway on the blockchain.
