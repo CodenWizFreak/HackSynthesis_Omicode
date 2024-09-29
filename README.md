@@ -21,7 +21,7 @@ Welcome to **HackSynthesis Omicode**! This project aims to enhance disaster prep
    - The app creates a timeline video of the precipitation gradient across India or West Bengal based on user-defined start and end dates.
   
 3. **Blockchain-Based Relief Fund**:
-   - A Solidity smart contract that allows users to contribute to a relief fund using Bitcoin tokens, ensuring transparent and secure transactions.
+   - A Solidity smart contract that allows users to contribute to a relief fund using Web3 tokens, ensuring transparent and secure transactions.
 
 ## Installation
 
@@ -81,9 +81,9 @@ To set up the project locally, follow these steps:
 
 ## Contributors
 
-- [Your Name](https://github.com/your-github-profile)
-- [Contributor 2](https://github.com/contributor2)
-- [Contributor 3](https://github.com/contributor3)
+- [Ananyo Dasgupta](https://github.com/CodenWizFreak)
+- [Soumyadip Roy](https://github.com/SoumyadipRoy16)
+- [Anidipta Pal](https://github.com/Anidipta)
 
 ## License
 
